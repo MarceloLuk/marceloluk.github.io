@@ -8,6 +8,7 @@
 $(document).ready(function() {
     "use strict";
     var $colorsHTML ='<style>.styleSwitcher {background:#fff; right:0; float:right;position:fixed; top:200px; width:155px;z-index:9999}' +
+    '.styleSwitcher2 {background:red; color:#ffffff; right:0; float:right;position:fixed; bottom:0px; width:100%;z-index:9999; padding: 5px;}' +
     '.switcher.dark{background:#555;}' +
     '.styleSwitcher ul li{display:inline-block;}' +
     '.styleSwitcher ul {display:block; padding:10px; margin:0}' +
@@ -15,36 +16,23 @@ $(document).ready(function() {
     '.styleSwitcher h1 {padding:0 0 0 10px;font-size:14px; text-transform:uppercase; color:#555;border:none; margin:0; text-align:left;}' +
     '.styleSwitcher h1:after {content:none;}' +
     '.styleSwitcher #showHideSwitcher{outline:none; width:252px; font-size:10px; height:100px;border-radius:10px;-moz-border-radius: 10px; box-shadow: 5px 5px 10px #666666;-webkit-box-shadow: 5px 5px 10px #666666;-moz-box-shadow: 5px 5px 10px #666666; position:absolute; right:0; background:#red; top:0; font-size:24px; text-align:center; line-height:32px; color:#FFF;}' +
-    '@media screen and (max-width: 800px) { #showHideSwitcher { display:none }}'+
+    '.styleSwitcher #showHideSwitcher2{outline:none; width:252px; font-size:10px; height:100px;border-radius:10px;-moz-border-radius: 10px; box-shadow: 5px 5px 10px #666666;-webkit-box-shadow: 5px 5px 10px #666666;-moz-box-shadow: 5px 5px 10px #666666; position:absolute; right:0; background:#red; top:0; font-size:24px; text-align:center; line-height:32px; color:#FFF;}' +
+    '@media screen and (max-width: 800px) { #showHideSwitcher { display:none } #showHideSwitcher2 { display:block } .styleSwitcher2 { display:block }}'+
+    '@media screen and (min-width: 800px) { #showHideSwitcher { display:block } #showHideSwitcher2 { display:none } .styleSwitcher2 { display:none }}'+
     '</style>' +
     '<div class="styleSwitcher">' +
-    '<div id="showHideSwitcher">' +
-    '<div style="font-size:20px;"><strong>Contato</strong></div>' +
-    '<div style="font-size:20px;"><strong>Telefone/Whatsapp:</strong></div>'+
-    '<div style="font-size:20px;">+55 (61) 99999-9999</div>'
+      '<div id="showHideSwitcher">' +
+        '<div style="font-size:20px;"><strong>Contato</strong></div>' +
+        '<div style="font-size:20px;"><strong>Telefone/Whatsapp:</strong></div>'+
+        '<div style="font-size:20px;"><i class="icon-phone"></i>&nbsp;+55 (61) 98139-8135</div>'+
+      '</div>' +
     '</div>' +
-    '<li><a href="css/yellow.css" style="background:#FFCC00">Yellow</a></li>' +
-    '<li><a href="css/sea-green.css" style="background:#3CB6B6">Sea green</a></li>' +
-    '<li><a href="css/green.css" style="background:#A4C618">Green</a></li>' +
-    '<li><a href="css/blue.css" style="background:#136597">Dark blue</a></li>' +
-    '<li><a href="css/light.css" style="background:#44BCDD">Light blue</a></li>' +
-    '<li><a href="css/pink.css" style="background:#F897F5">Pink</a></li>' +
-    '<li><a href="css/coffee.css" style="background:#A38757">Coffee</a></li>' +
-    '<li><a href="css/red.css" style="background:#E44832">Red</a></li>' +
-    '<li><a href="css/purple.css" style="background:#C44AD0">Purple</a></li>' +
-    '</ul>' +
-    /*'<ul class="switcher dark">' +
-    '<li><a href="css/dark-orange.css" style="background:#F86D18">Dark Orange</a></li>' +
-    '<li><a href="css/dark-yellow.css" style="background:#FFCC00">Dark Yellow</a></li>' +
-    '<li><a href="css/dark-sea-green.css" style="background:#3CB6B6">Dark Sea green</a></li>' +
-    '<li><a href="css/dark-green.css" style="background:#A4C618">Dark Green</a></li>' +
-    '<li><a href="css/dark-blue.css" style="background:#136597">Dark Dark blue</a></li>' +
-    '<li><a href="css/dark-light.css" style="background:#44BCDD">Dark Light blue</a></li>' +
-    '<li><a href="css/dark-pink.css" style="background:#F897F5">Dark Pink</a></li>' +
-    '<li><a href="css/dark-coffee.css" style="background:#A38757">Dark Coffee</a></li>' +
-    '<li><a href="css/dark-red.css" style="background:#E44832">Dark Red</a></li>' +
-    '<li><a href="css/dark-purple.css" style="background:#C44AD0">Dark Black &amp; white</a></li>' +
-    '</ul>' +*/
+    '<div class="styleSwitcher2">' +
+      '<div id="showHideSwitcher2">' +
+        '<div style="font-size:20px;"><strong>Contato</strong></div>' +
+        '<div style="font-size:20px;"><strong>Telefone/Whatsapp:</strong></div>'+
+        '<div style="font-size:20px;"><i class="icon-phone"></i>&nbsp;+55 (61) 98139-8135</div>'+
+      '</div>' +
     '</div>';
 
     $("body").append($colorsHTML);
