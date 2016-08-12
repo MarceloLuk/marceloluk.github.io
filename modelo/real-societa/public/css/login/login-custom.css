@@ -1,0 +1,9 @@
+
+.bg-login {
+    background-position-y: 457px;
+}
+@media(max-width:800px){
+    .bg-login {
+        background-position-y: 0px;
+    }
+}
