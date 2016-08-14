@@ -31,6 +31,7 @@
   <!-- CUSTOM CSS -->
   <link href="../public/css/style.css" rel="stylesheet">
 
+  <link href="bower_components/angular-growl-v2/build/angular-growl.css" rel="stylesheet">
   <!-- FAVICON -->
   <link rel="shortcut icon" type="image/png" href="home/img/favicon.png"/>
 
@@ -48,7 +49,7 @@
 
   <!-- HEADER -->
   <header>
-    <nav class="navbar navbar-default navbar-fixed-top lightHeader" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top lightHeader" role="navigation" ng-controller="appCtrl">
       <div class="container">
 
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -68,7 +69,7 @@
             <li class="active dropdown singleDrop">
               <a href="#/home">Home</a>
             </li>
-            <li class="dropdown singleDrop">
+            <li class="dropdown singleDrop" ng-if="!userAuth">
               <a href="#/user">Cadastre-se</a>
             </li>
             <li class="dropdown singleDrop">
@@ -78,18 +79,17 @@
               <a href="javascript:void(0)">Contatos</a>
             </li>
 
-            <li class="dropdown singleDrop">
+            <li class="dropdown singleDrop " ng-if="userAuth">
               <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha Conta</a>
               <ul class="dropdown-menu dropdown-menu-right">
                 <li><a href="accordion-and-toggles.html">Meus Ingressos</a></li>
                 <li><a href="tabs-and-dropdown.html">Minha Conta</a></li>
                 <li><a href="tabs-and-dropdown.html">Solicitar Cartao</a></li>
-                <li><a href="pricing-table.html">Sair</a></li>
+                <li><a href="pricing-table.html" ng-click="logout()">Sair</a></li>
               </ul>
             </li>
-            <li class="dropdown searchBox">
+            <li class="dropdown searchBox" ng-if="!userAuth">
               <a href="#/login"><span class="searchIcon"><i class="fa fa-user" aria-hidden="true"></i></span></a>
-
             </li>
           </ul>
         </div>
@@ -97,7 +97,7 @@
       </div>
     </nav>
   </header>
-
+  <div growl></div>
 
 
 
@@ -113,8 +113,8 @@
       <div class="row">
         <div class="col-sm-3 col-xs-12">
           <div class="footerContent">
-            <a href="home.html" class="footer-logo"><img src="../public/img/83tec3.png" alt="footer-logo" width="150px"></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+            <a href="home.html" class="footer-logo"><img src="home/img/logo-color-sm.png" alt="footer-logo"></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </p>
           </div>
         </div>
         <div class="col-sm-3 col-xs-12">
@@ -226,7 +226,8 @@
 
 <!-- JAVASCRIPTS -->
 
-  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/underscore/underscore-min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="../public/plugins/jquery-ui/jquery-ui.js"></script>
 <script src="../public/plugins/bootstrap/js/bootstrap.min.js"></script>
@@ -243,13 +244,20 @@
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 -->
+
+<script src="global.js"></script>
 <script src="bower_components/angular/angular.js"></script>
 <script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-input-masks/angular-input-masks-standalone.js"></script>
+<script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
+<script src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="app.js"></script>
 <script src="home/home.js"></script>
 <script src="login/login.js"></script>
 <script src="user/user.js"></script>
 <script src="user-check/user-check.js"></script>
+<script src="event/event.js"></script>
 
 </body>
 

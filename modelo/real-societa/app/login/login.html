@@ -29,14 +29,14 @@
           <div class="contactForm">
             <form action="" method="POST" role="form" class="form">
               <div class="form-group">
-                <input type="email" class="form-control" id="" placeholder="Email">
+                <input type="text" class="form-control" ng-model="login.email" placeholder="Email">
               </div>
               <div class="form-group">
-                <input type="text" class="form-control" id="" placeholder="Senha">
+                <input type="password" class="form-control" ng-model="login.pass" placeholder="Senha">
               </div>
-              <button type="submit" class="btn buttonCustomPrimary">Entrar</button>
+              <button type="button" class="btn buttonCustomPrimary" ng-click="loginIn()">Entrar</button>
 
-              <button type="submit" class="btn buttonCustomPrimary" style="margin-right:10px;
+              <button type="button" class="btn buttonCustomPrimary" style="margin-right:10px;
     background-color: #4267b2;">Entrar com facebook</button>
             </form>
           </div>
@@ -48,22 +48,34 @@
         <div class="contactForm">
           <form action="" method="POST" role="form" class="form">
             <div class="form-group  col-xs-12">
-              <input type="text" class="form-control" id="" placeholder="Nome">
+              <input type="text" class="form-control" ng-model="formdata.nome" placeholder="Nome">
             </div>
             <div class="form-group  col-xs-12 col-sm-6">
-              <input type="text" class="form-control" id="" placeholder="CPF">
+              <input type="text" class="form-control" ng-model="formdata.cpf" placeholder="CPF" ui-br-cpf-mask>
+            </div>
+            <div class="form-group col-sm-6 col-xs-12">
+              <div class="input-group date ed-datepicker" data-provide="datepicker">
+                <input type="text" class="form-control" ng-model="formdata.dataNascimento"  placeholder="MM/DD/YYYY">
+                <div class="input-group-addon">
+                  <span class="fa fa-calendar"></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-sm-6 col-xs-12">
+              <select name="guiest_id2" ng-model="formdata.sexo" id="guiest_id2" placeholder="Sexo" class="form-control">
+                <option value="">Sexo</option>
+                <option value="M">Masculino</option>
+                <option value="F">Feminino</option>
+              </select>
+            </div>
+            <div class="form-group col-sm-6 col-xs-12">
+              <input type="text" class="form-control" ng-model="formdata.telefone" placeholder="Telefone" ui-br-phone-number>
             </div>
             <div class="form-group  col-xs-12">
-              <input type="text" class="form-control" id="" placeholder="E-mail">
-            </div>
-            <div class="form-group col-sm-6 col-xs-12">
-              <input type="text" class="form-control" id="" placeholder="Nascimento">
-            </div>
-            <div class="form-group col-sm-6 col-xs-12">
-              <input type="text" class="form-control" id="" placeholder="Sexo">
+              <input type="text" class="form-control" ng-model="formdata.email" placeholder="E-mail">
             </div>
 
-            <button type="submit" class="btn buttonCustomPrimary">Cadastrar</button>
+            <button type="button" ng-click="saveUser()" class="btn buttonCustomPrimary">Cadastrar</button>
           </form>
         </div>
       </div>

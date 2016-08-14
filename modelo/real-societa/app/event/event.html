@@ -1,0 +1,143 @@
+<section class="pageTitle" style="background-image:url(../public/img/login/The+Maxim+Party+2016+Pavilion.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="titleTable">
+                    <div class="titleTableInner">
+                        <div class="pageTitleInfo">
+                            <h1>{{event.nome}}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mainContentSection singlePackage">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="well">
+                    <div class="row">
+                        <div class="col-sm-4 col-xs-12">
+                            <div class="infoImage"><img src="../public/img/login/The+Maxim+Party+2016+Pavilion.jpg" alt="Info Image"></div>
+                        </div>
+                        <div class="col-sm-5 col-xs-12">
+                            <div class="packageInfo">
+                                <h4>Informações</h4>
+                                <dl class="dl-horizontal">
+                                    <dt>Nome:</dt>
+                                    <dd>{{event.nome}}</dd>
+                                    <dt>Local:</dt>
+                                    <dd>{{event.local}}</dd>
+                                    <dt>Data:</dt>
+                                    <dd>{{event.data_evento | date:'dd/MM/yyyy'}}</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="">
+            <div class="container">
+                <div class="row priceTable">
+                    <div class="col-xs-12">
+                        <div class="sectionTitle">
+                            <h2><span>Ingressos</span></h2>
+                        </div>
+                    </div>
+                    <div ng-repeat="lotes in event.lotes">
+                        <div class="col-sm-4 col-xs-12" ng-repeat="valores in lotes.valores">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">{{valores.descricao}}</div>
+                                <div class="panel-body">
+                                    <div class="priceCircle">
+                                        <h3>R$ {{valores.valor}}
+                                            <small style="text-transform: uppercase">Taxa: R$ {{valores.taxa}}</small>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled" style="padding: 40px 20px 10px 20px">
+                                    <li><i class="fa fa-check-circle" aria-hidden="true"></i>1 Lote</li>
+                                    <li>
+                                        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-default" style="background-color: #AF8C4A" ng-click="remove(valores)">
+                                                    <i class="fa fa-minus" style="color: white"></i>
+                                                </button>
+                                            </div>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-default">{{valores.qtd}}</button>
+                                            </div>
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-default" style="background-color: #AF8C4A" ng-click="add(valores)">
+                                                    <i class="fa fa-plus" style="color: white"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="panel-footer">
+                                    SUBTOTAL: R$ {{ (valores.valor + valores.taxa) * valores.qtd}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <div class="row">
+            <div class="col-xs-12">
+                <p style="text-align: center">TOTAL: R$ {{ totalIngressos(event.lotes) }}</p>
+                <div class="btnArea">
+                    <a href="packages-grid.html" class="btn buttonTransparent">Comprar</a>
+                </div>
+            </div>
+        </div>
+
+        <!--<div class="row">-->
+            <!--<div class="col-xs-12">-->
+                <!--<div class="relatedProduct">-->
+                    <!--<h2>you may also like</h2>-->
+                    <!--<div class="row">-->
+                        <!--<div class="col-sm-4 col-xs-12">-->
+                            <!--<div class="relatedItem">-->
+                                <!--<img src="img/packages/package-related-01.png" alt="related image">-->
+                                <!--<div class="maskingInfo">-->
+                                    <!--<h4>maldives tour</h4>-->
+                                    <!--<p>Lorem Ipsum</p>-->
+                                    <!--<a href="#" class="btn buttonTransparent">view more</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-4 col-xs-12">-->
+                            <!--<div class="relatedItem">-->
+                                <!--<img src="img/packages/package-related-02.png" alt="related image">-->
+                                <!--<div class="maskingInfo">-->
+                                    <!--<h4>maldives tour</h4>-->
+                                    <!--<p>Lorem Ipsum</p>-->
+                                    <!--<a href="#" class="btn buttonTransparent">view more</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-sm-4 col-xs-12">-->
+                            <!--<div class="relatedItem">-->
+                                <!--<img src="img/packages/package-related-03.png" alt="related image">-->
+                                <!--<div class="maskingInfo">-->
+                                    <!--<h4>maldives tour</h4>-->
+                                    <!--<p>Lorem Ipsum</p>-->
+                                    <!--<a href="#" class="btn buttonTransparent">view more</a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    </div>
+</section>

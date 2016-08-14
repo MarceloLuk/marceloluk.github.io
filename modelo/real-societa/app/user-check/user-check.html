@@ -28,11 +28,11 @@
         <div class="contactForm">
           <form action="" method="POST" role="form" class="form">
             <div class="form-group">
-              <input type="text" class="form-control" id="" placeholder="Codigo de confirmacao">
+              <input type="text" class="form-control" ng-model="code" placeholder="Codigo de confirmacao">
             </div>
-            <button type="submit" class="btn buttonCustomPrimary">Confirmar</button>
+            <button type="button" class="btn buttonCustomPrimary" ng-click="check()">Confirmar</button>
 
-            <button type="submit" class="btn buttonCustomPrimary" style="margin-right:10px;">Reenviar codigo</button>
+            <button type="button" class="btn buttonCustomPrimary" style="margin-right:10px;" ng-click="resend()">Reenviar codigo</button>
           </form>
         </div>
       </div>
