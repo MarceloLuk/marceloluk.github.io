@@ -60,7 +60,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="home.html"></a>
+          <a class="navbar-brand" href="#/home"></a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -76,16 +76,17 @@
               <a href="javascript:void(0)">Duvidas Frequentes</a>
             </li>
             <li class="dropdown singleDrop">
-              <a href="javascript:void(0)">Contatos</a>
+              <a href="#/contact">Contatos</a>
             </li>
 
             <li class="dropdown singleDrop " ng-if="userAuth">
               <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha Conta</a>
               <ul class="dropdown-menu dropdown-menu-right">
-                <li><a href="accordion-and-toggles.html">Meus Ingressos</a></li>
-                <li><a href="tabs-and-dropdown.html">Minha Conta</a></li>
-                <li><a href="tabs-and-dropdown.html">Solicitar Cartao</a></li>
-                <li><a href="pricing-table.html" ng-click="logout()">Sair</a></li>
+                <li><a href="#/ticket">Meus Ingressos</a></li>
+                <li><a href="#/user/edit">Minha Conta</a></li>
+                <li><a href="">Solicitar Cartao</a></li>
+                <li><a href="#/admin/event/list">Cadastrar Evento</a></li>
+                <li><a ng-click="logout()">Sair</a></li>
               </ul>
             </li>
             <li class="dropdown searchBox" ng-if="!userAuth">
@@ -111,13 +112,13 @@
   <div class="footer clearfix">
     <div class="container">
       <div class="row">
-        <div class="col-sm-3 col-xs-12">
+        <div class="col-sm-4 col-xs-12">
           <div class="footerContent">
-            <a href="home.html" class="footer-logo"><img src="home/img/logo-color-sm.png" alt="footer-logo"></a>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute </p>
+            <a href="home.html" class="footer-logo"><img src="../public/img/83tec3.png" width="130px" alt="footer-logo"></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
           </div>
         </div>
-        <div class="col-sm-3 col-xs-12">
+        <div class="col-sm-4 col-xs-12">
           <div class="footerContent">
             <h5>Contact Us</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</p>
@@ -128,32 +129,7 @@
             </ul>
           </div>
         </div>
-        <div class="col-sm-3 col-xs-12">
-          <div class="footerContent imgGallery">
-            <h5>Gallery</h5>
-            <div class="row">
-              <div class="col-xs-4">
-                <a class="fancybox-pop" href="home/img/home/gallery/gallery-1.jpg"><img src="home/img/home/gallery/thumb-gallery-1.jpg" alt="image"></a>
-              </div>
-              <div class="col-xs-4">
-                <a class="fancybox-pop" href="home/img/home/gallery/gallery-2.jpg"><img src="home/img/home/gallery/thumb-gallery-2.jpg" alt="image"></a>
-              </div>
-              <div class="col-xs-4">
-                <a class="fancybox-pop" href="home/img/home/gallery/gallery-3.jpg"><img src="home/img/home/gallery/thumb-gallery-3.jpg" alt="image"></a>
-              </div>
-              <div class="col-xs-4">
-                <a class="fancybox-pop" href="home/img/home/gallery/gallery-4.jpg"><img src="home/img/home/gallery/thumb-gallery-4.jpg" alt="image"></a>
-              </div>
-              <div class="col-xs-4">
-                <a class="fancybox-pop" href="home/img/home/gallery/gallery-5.jpg"><img src="home/img/home/gallery/thumb-gallery-5.jpg" alt="image"></a>
-              </div>
-              <div class="col-xs-4">
-                <a class="fancybox-pop" href="home/img/home/gallery/gallery-6.jpg"><img src="home/img/home/gallery/thumb-gallery-6.jpg" alt="image"></a>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 col-xs-12">
+        <div class="col-sm-4 col-xs-12">
           <div class="footerContent">
             <h5>Newsletter</h5>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do. </p>
@@ -241,6 +217,7 @@
 <script src="../public/plugins/isotope/jquery.fancybox.pack.js"></script>
 <script src="../public/plugins/isotope/isotope-triger.js"></script>
 <script src="../public/plugins/countdown/jquery.syotimer.js"></script>
+<script src="../public/js/scroolabe.js"></script>
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
 -->
@@ -256,8 +233,16 @@
 <script src="home/home.js"></script>
 <script src="login/login.js"></script>
 <script src="user/user.js"></script>
+<script src="qr-code/qr-code.js"></script>
+<script src="ticket/ticket.js"></script>
+<script src="contact/contact.js"></script>
 <script src="user-check/user-check.js"></script>
 <script src="event/event.js"></script>
+<script src="user/confirm.js"></script>
+<script src="user/edit.js"></script>
+<script src="event/form.js"></script>
+<script src="event/list.js"></script>
+<script src="event/lotes.js"></script>
 
 </body>
 

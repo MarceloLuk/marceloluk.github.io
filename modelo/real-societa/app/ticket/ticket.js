@@ -1,36 +1,37 @@
 'use strict';
 
-angular.module('user', ['ngRoute'])
+angular.module('ticket', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/user', {
-    templateUrl: 'user/ticket.html',
-    controller: 'userCtrl'
+  $routeProvider.when('/ticket', {
+    templateUrl: 'ticket/ticket.html',
+    controller: 'ticketCtrl'
   });
 }])
 
-.controller('userCtrl', [ '$scope', '$http', 'growl','store', '$location',
+.controller('ticketCtrl', [ '$scope', '$http', 'growl','store', '$location',
   function($scope, $http, growl, store, $location) {
-    $scope.formdata = {};
-    if (store.get('formdata')) {
-      $scope.formdata = store.get('formdata');
-      store.remove('formdata');
+    $scope.list = [];
+    $scope.userAuth = store.get('user_auth');
+    if (!$scope.userAuth) {
+       $location.path( "/login" );
     }
 
-    $scope.saveUser = function () {
-      $http.post(window.global.url+'api/usuario/salvar',
-          $scope.formdata
-      ).success(function(data){
-        console.log(data);
-        if (data.status != 'error') {
-          growl.success(data.messages);
-          store.set('userSave', data.result);
-          $location.path( "/user-check" );
-        } else {
-          growl.error(data.messages);
-        }
+    $scope.getList = function () {
+      console.log($scope.userAuth);
+      $http.get(window.global.url+'api/evento/usuario/'+$scope.userAuth.id).success(function(data){
+       $scope.list = data.result;
       }).error(function (data){
         growl.error(data);
       });
-    }
+    };
+    $scope.getList();
+
+    $scope.getCode = function (id) {
+      store.set('setCode', id);
+      $location.path( "/qr-code" );
+    };
+
+
+    $("#changeHeader").animate({ scrollTop: 0 }, 100);
 }]);

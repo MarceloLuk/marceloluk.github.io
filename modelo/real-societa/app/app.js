@@ -8,11 +8,20 @@ angular.module('myApp', [
   'angular-storage',
   'ui.bootstrap',
   'home',
+  'ticket',
+  'qr-code',
   'login',
   'user',
   'event',
-  'user-check'
+  'user-check',
+  'confirm',
+  'userEdit',
+  'confirm',
+  'eventForm',
+  'eventList',
+  'lotes'
 ]).
+
 config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
 
   $routeProvider.otherwise({redirectTo: '/home'});
@@ -22,9 +31,10 @@ config(['$locationProvider', '$routeProvider', function($locationProvider, $rout
   function($scope, $http, growl, store, $location) {
     $scope.userAuth = store.get('user_auth');
 
-    store.remove('user_auth');
     $scope.logout = function () {
       store.remove('user_auth');
+      store.set('reload', true);
+      $location.path( "/home" );
     }
   }]);
 

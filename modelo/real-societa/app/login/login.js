@@ -23,7 +23,11 @@ angular.module('login', ['ngRoute'])
           if (data.status != 'error') {
               store.set('user_auth', data.result);
               store.set('reload', true);
-              $location.path( "/home" );
+              if (store.get('compraIngresso')) {
+                  $location.path("/confirm");
+              } else {
+                  $location.path("/home");
+              }
           } else {
               growl.error(data.messages);
           }
@@ -42,4 +46,6 @@ angular.module('login', ['ngRoute'])
         $event.stopPropagation();
         $scope.opened = true;
     };
+
+    $("#changeHeader").animate({ scrollTop: 0 }, 100);
 }]);

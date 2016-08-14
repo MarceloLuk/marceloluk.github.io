@@ -32,5 +32,20 @@ angular.module('user', ['ngRoute'])
       }).error(function (data){
         growl.error(data);
       });
-    }
+    };
+
+    $scope.loadcep = function () {
+        $http.get('https://viacep.com.br/ws/' + $scope.formdata.cep + '/json/').success(function(data){
+            if (!data.erro) {
+                $scope.formdata.uf = data.uf;
+                $scope.formdata.bairro = data.bairro;
+                $scope.formdata.complemento = data.complemento;
+                $scope.formdata.endereco = data.logradouro;
+                $scope.formdata.municipio = data.localidade;
+            }
+            console.log(data);
+        });
+    };
+
+    $("#changeHeader").animate({ scrollTop: 0 }, 100);
 }]);

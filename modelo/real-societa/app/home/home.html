@@ -37,7 +37,7 @@
                  data-endspeed="300"
                  data-endeasing="Power1.easeIn"
                  data-captionhidden="off">
-              <span class="page-scroll"><a href="#" class="btn buttonCustomPrimary">Detalhes</a></span>
+              <span class="page-scroll"><a class="btn buttonCustomPrimary" ng-click="getEvent(event[0].id)">Detalhes</a></span>
             </div>
           </div>
         </li>
@@ -76,7 +76,7 @@
                  data-endspeed="300"
                  data-endeasing="Power1.easeIn"
                  data-captionhidden="off">
-              <span class="page-scroll"><a href="#" class="btn buttonCustomPrimary">Detalhes</a></span>
+              <span class="page-scroll"><a  class="btn buttonCustomPrimary" ng-click="getEvent(event[1].id)">Detalhes</a></span>
             </div>
           </div>
         </li>
@@ -112,7 +112,7 @@
                  data-endspeed="300"
                  data-endeasing="Power1.easeIn"
                  data-captionhidden="off">
-              <span class="page-scroll"><a href="#" class="btn buttonCustomPrimary">Detalhes</a></span>
+              <span class="page-scroll"><a class="btn buttonCustomPrimary" ng-click="getEvent(event[2].id)">Detalhes</a></span>
             </div>
           </div>
         </li>
@@ -135,43 +135,50 @@
         <div class="row">
           <div class="col-sm-3 col-xs-12">
             <div class="searchTour">
-              <select name="guiest_id2" id="guiest_id2" class="select-drop">
-                <option value="1">USA</option>
-                <option value="2">UK</option>
-                <option value="3">Canada</option>
+              <select name="guiest_id2" id="guiest_id2" ng-model="formdata.uf" class="select-drop" style="z-index: 9999">
+                <option value="">UF</option>
+                <option value="AC">AC</option>
+                <option value="AL">AL</option>
+                <option value="AM">AM</option>
+                <option value="AP">AP</option>
+                <option value="BA">BA</option>
+                <option value="CE">CE</option>
+                <option value="DF">DF</option>
+                <option value="ES">ES</option>
+                <option value="GO">GO</option>
+                <option value="MA">MA</option>
+                <option value="MT">MT</option>
+                <option value="MS">MS</option>
+                <option value="MG">MG</option>
+                <option value="PA">PA</option>
+                <option value="PB">PB</option>
+                <option value="PR">PR</option>
+                <option value="PE">PE</option>
+                <option value="PI">PI</option>
+                <option value="RJ">RJ</option>
+                <option value="RN">RN</option>
+                <option value="RO">RO</option>
+                <option value="RS">RS</option>
+                <option value="RR">RR</option>
+                <option value="SC">SC</option>
+                <option value="SE">SE</option>
+                <option value="SP">SP</option>
+                <option value="TO">TO</option>
               </select>
             </div>
           </div>
           <div class="col-sm-3 col-xs-12">
             <div class="input-group date ed-datepicker" data-provide="datepicker">
-              <input type="text" class="form-control" placeholder="MM/DD/YYYY">
+              <input type="text" class="form-control" ng-model="formdata.date" placeholder="DD/MM/YYYY">
               <div class="input-group-addon">
                 <span class="fa fa-calendar"></span>
               </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-xs-12">
-            <div class="input-group date ed-datepicker" data-provide="datepicker">
-              <input type="text" class="form-control" placeholder="MM/DD/YYYY">
-              <div class="input-group-addon">
-                <span class="fa fa-calendar"></span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-xs-12">
-            <div class="searchTour">
-              <select name="guiest_id3" id="guiest_id3" class="select-drop">
-                <option value="0">$1000 - $2000</option>
-                <option value="1">$1400 - $2000</option>
-                <option value="2">$1600 - $2000</option>
-                <option value="3">$1800 - $2000</option>
-              </select>
             </div>
           </div>
         </div>
       </div>
       <div class="col-sm-2 col-xs-12">
-        <a href="#" class="btn btn-block buttonCustomPrimary">Buscar</a>
+        <a ng-click="search()" class="btn btn-block buttonCustomPrimary">Buscar</a>
       </div>
     </div>
   </div>
@@ -192,7 +199,7 @@
       <div class="col-sm-4 col-xs-12" ng-repeat="item in event">
         <div class="thumbnail deals">
           <img src="home/img/home/deal/deal-02.jpg" alt="deal-image">
-          <a href="single-package-fullwidth.html" class="pageLink"></a>
+          <a class="pageLink"  ng-click="getEvent(item.id)"></a>
           <div class="discountInfo">
             <ul class="list-inline duration">
               <li>{{item.data_evento|date:'dd/MM/yyyy'}}</li>
@@ -203,7 +210,7 @@
             <p>{{item.local}}</p>
             <div class="detailsInfo">
               <ul class="list-inline detailsBtn">
-                <li><a href="single-package-fullwidth.html" class="btn buttonTransparent">Detalhes</a></li>
+                <li><a class="btn buttonTransparent"  ng-click="getEvent(item.id)">Detalhes</a></li>
               </ul>
             </div>
           </div>
