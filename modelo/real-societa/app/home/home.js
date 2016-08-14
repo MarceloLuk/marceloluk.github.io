@@ -8,7 +8,7 @@ angular.module('home', ['ngRoute'])
     controller: 'homeCtrl',
     resolve: {
       event: ['$http', function ($http) {
-        return $http.get("http://prioritypass.esy.es/web/api/evento");
+        return $http.get("https://prioritypass.esy.es/web/api/evento");
       }]
     }
   });
