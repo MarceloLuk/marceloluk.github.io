@@ -1,3 +1,3 @@
 var global = {
-   url : 'http://prioritypass.esy.es/web/',
+   url : 'https://prioritypass.esy.es/web/',
 };
