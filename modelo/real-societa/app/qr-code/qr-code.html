@@ -1,0 +1,41 @@
+
+<link rel="stylesheet" type="text/css" href="../public/css/login/login-custom.css">
+
+<!-- PAGE TITLE -->
+<section class="pageTitle bg-login" style="background-image:url(../public/img/login/hd_party_wallpaper.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="titleTable">
+          <div class="titleTableInner">
+            <div class="pageTitleInfo">
+              <h1>Ingresso</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="whiteSection">
+  <div class="container">
+    <div class="row priceTable">
+      <div class="col-sm-12 col-xs-12" style="border: 1px solid #cccccc">
+          <div class="col-sm-12 col-xs-12">
+          <div class="col-sm-6 col-xs-12" style="text-align: left; padding:20px;" ><img src="../public/img/logo-color-big.png" width="200px" alt="footer-logo" ></div>
+          <div class="col-sm-6 col-xs-12" style="text-align: right; padding:20px;"><span>Ingresso</span><br><span style="color: #b88a44">{{ code.ingresso }}</span></div>
+            <div class="col-sm-12 col-xs-12" style="border-top:1px solid #cccccc ">&nbsp;</div>
+            <div class="col-sm-6 col-xs-12" style="text-align: left" ><span>Evento</span><br><span style="color: #b88a44">{{ code.nome }}</span></div>
+            <div class="col-sm-6 col-xs-12" style="text-align: right; padding:20px;"><span>Data</span><br><span style="color: #b88a44">{{ code.dataEvento }} {{ code.hora }}</span></div>
+            <div class="col-sm-12 col-xs-12" style="text-align: left" ><span>Cliente</span><br><span style="color: #b88a44">{{ code.cliente }}</span></div>
+          <div class="col-sm-12 col-xs-12" style="text-align: center;">
+            <img ng-src="{{img}}">
+          </div>
+        </div>
+    </div>
+      <div class="col-sm-12 col-xs-12" style="text-align: center;"><button class="btn buttonCustomPrimary" ng-click="back()" style="margin: 5px;padding: 0 10px;"> Voltar</button></div>
+  </div>
+</section>
+
+

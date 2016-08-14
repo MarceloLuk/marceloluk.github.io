@@ -1,0 +1,128 @@
+
+<link rel="stylesheet" type="text/css" href="../public/css/login/login-custom.css">
+
+<section class="mainContentSection" style="margin-top: 20px">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+
+                <div class="col-xs-12">
+                    <div ng-repeat="lotes in event.lotes">
+                        <div class="col-sm-4 col-xs-12" ng-repeat="valores in lotes.valores" ng-if="valores.total">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">{{valores.descricao}}</div>
+                                <div class="panel-body">
+                                    <div class="priceCircle">
+                                        <h3>R$ {{valores.valor}}
+                                            <small style="text-transform: uppercase">Taxa: R$ {{valores.taxa}}</small>
+                                        </h3>
+                                    </div>
+                                </div>
+                                <ul class="list-unstyled" style="padding: 1px 20px 10px 20px">
+                                    <li><i class="fa fa-check-circle" aria-hidden="true"></i>1 Lote</li>
+                                    <li>
+                                        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                            <div class="btn-group" role="group">
+                                                <button type="button" class="btn btn-default" disabled>{{valores.qtd}}</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="panel-footer">
+                                    SUBTOTAL: R$ {{ valores.total }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="text-align: center">TOTAL: R$ {{ totalIngressos(event.lotes) }}</p>
+
+                <div class="infoTitle">
+                    <h2>Confirmar pagamento</h2>
+                    <p>Selecione o cartão desejado para o pagamento ou adicione um novo</p>
+                </div>
+
+                <div class="panel panel-default" ng-class="{ 'filte-white' : !card.select  }" style="cursor: pointer" ng-click="selectCard(card);" ng-if="cards.length" ng-repeat="card in cards">
+                    <div class=" panel-body">
+                        <span>
+                            <img src="{{card.imagem}}" alt="image">
+                        </span>
+                        <span>{{card.numero}}</span>
+                    </div>
+                </div>
+                <div class="panel panel-default" style="cursor: pointer" ng-click="addCard();">
+                    <div class=" panel-body">
+                        <span>Adicionar cartão</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <!--<p style="text-align: center">TOTAL: R$ {{ totalIngressos(event.lotes) }}</p>-->
+                <div class="btnArea">
+                    <a href="" class="btn buttonTransparent" ng-click="back()">Voltar</a>
+                    <a href="" class="btn buttonTransparent" ng-click="confirmBuy()">Avançar</a>
+                </div>
+            </div>
+
+            <div class="col-xs-12" ng-if="formCard">
+                <div class="bookingForm">
+                    <form action="" method="POST" role="form" class="form">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="infoTitle">
+                                    <h2>Dados do cartão</h2>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label>Número</label>
+                                <input type="text" class="form-control" ng-model="formData.numero" ui-credit-card>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label>Código de segurança</label>
+                                <input type="text" class="form-control" ng-model="formData.codigo" valid-number maxlength="3">
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label class="blankLabel"></label>
+                                <ul class="list-inline">
+                                    <li><a href="" ng-click="addTypeCard('M')" ng-class="{ 'filte-white' : formData.tipo != 'M'  }" ><img src="img/master-card.png" alt="image"></a></li>
+                                    <li><a href="" ng-click="addTypeCard('V')" ng-class="{ 'filte-white' : formData.tipo != 'V'  }" ><img src="img/visa.png" alt="image"></a></li>
+                                </ul>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label class="blankLabel">Vencimento</label>
+                                <div class="bookingDrop">
+                                    <select class="form-control" ng-model="formData.mes">
+                                        <option value="">Mês</option>
+                                        <option value="1">July</option>
+                                        <option value="2">August</option>
+                                        <option value="3">September</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label></label>
+                                <div class="bookingDrop">
+                                    <select ng-model="formData.ano" class="form-control">
+                                        <option value="">Ano</option>
+                                        <option value="2016">2016</option>
+                                        <option value="2017">2017</option>
+                                        <option value="2018">2018</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <!--<p style="text-align: center">TOTAL: R$ {{ totalIngressos(event.lotes) }}</p>-->
+                                <div class="btnArea">
+                                    <a href="" class="btn buttonTransparent" ng-click="cancelCard()">Cancelar</a>
+                                    <a href="" class="btn buttonTransparent" ng-click="saveCard()">Salvar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

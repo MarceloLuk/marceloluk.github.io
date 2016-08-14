@@ -1,0 +1,133 @@
+<section class="mainContentSection" style="margin-top: 20px">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="infoTitle">
+                    <h2>Lotes do evento: {{events.nome}}</h2>
+                </div>
+                <uib-accordion close-others="oneAtATime">
+                    <div ng-repeat="lotes in events.lotes"  uib-accordion-group class="panel-default" heading="Lote {{lotes.numero}}">
+                        <div>
+                            <label>Data de início: </label>
+                            {{lotes.data_inicio | date: 'dd/MM/yyyy'}}
+                        </div>
+                        <div>
+                            <label>Data de termino: </label>
+                            {{lotes.data_fim | date: 'dd/MM/yyyy'}}
+                        </div>
+                        <div>
+                            <label>Quantidade: </label>
+                            {{lotes.quantidade}}
+                        </div>
+                        <hr>
+                        <div>
+                            <div>
+                                <h4>Valores</h4>
+                            </div>
+                            <div ng-repeat="valor in lotes.valores" class="row">
+                                <div class="col-xs-12">
+                                    <label>Descrição</label>
+                                    {{valor.descricao}}
+                                </div>
+                                <div class="col-sm-3 col-xs-12">
+                                    <label>Valor</label>
+                                    R$ {{valor.valor}}
+                                </div>
+                                <div class="col-sm-3 col-xs-12">
+                                    <label>Taxa</label>
+                                    R$ {{valor.taxa}}
+                                </div>
+                            </div>
+                            <hr>
+                            <a href="" class="btn buttonTransparent" ng-click="addValor(lotes)">Adicionar valor</a>
+                            <div class="bookingForm" ng-if="cadValor[lotes.id]" style="margin-top: 10px;">
+                                <form action="" method="POST" role="form" class="form">
+                                    <div class="row">
+                                        <div class="form-group col-sm-6 col-xs-12">
+                                            <label>Valor</label>
+                                            <input type="text" class="form-control" ng-model="formValor.valor" valid-number>
+                                        </div>
+                                        <div class="form-group col-sm-6 col-xs-12">
+                                            <label>Taxa</label>
+                                            <input type="text" class="form-control" ng-model="formValor.taxa" valid-number>
+                                        </div>
+                                        <div class="form-group col-xs-12">
+                                            <label>Descrição</label>
+                                            <input type="text" class="form-control" ng-model="formValor.descricao">
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <!--<p style="text-align: center">TOTAL: R$ {{ totalIngressos(event.lotes) }}</p>-->
+                                            <div class="btnArea">
+                                                <a href="" class="btn buttonTransparent" ng-click="cancelValor(lotes)">Cancelar</a>
+                                                <a href="" class="btn buttonTransparent" ng-click="saveValor(lotes)">Salvar</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </uib-accordion>
+                <div class="panel panel-default" style="cursor: pointer" ng-click="addLote();">
+                    <div class=" panel-body">
+                        <span>Adicionar Lote</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12" ng-if="formLote">
+                <div class="bookingForm">
+                    <form action="" method="POST" role="form" class="form">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="infoTitle">
+                                    <h2>Dados do lote</h2>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label>Número</label>
+                                <input type="text" class="form-control" ng-model="formData.numero" valid-number>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label>Quantidade</label>
+                                <input type="text" class="form-control" ng-model="formData.quantidade" valid-number>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label>Data de início</label>
+                                <div class="input-group date ed-datepicker" data-provide="datepicker">
+                                    <input type="text" class="form-control" ng-model="formData.dt_inicio"  placeholder="MM/DD/YYYY">
+                                    <div class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label>Data fim</label>
+                                <div class="input-group date ed-datepicker" data-provide="datepicker">
+                                    <input type="text" class="form-control" ng-model="formData.dt_fim"  placeholder="MM/DD/YYYY">
+                                    <div class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label>Descrição</label>
+                                <input type="text" class="form-control" ng-model="formData.descricao">
+                            </div>
+                            <div class="col-xs-12">
+                                <!--<p style="text-align: center">TOTAL: R$ {{ totalIngressos(event.lotes) }}</p>-->
+                                <div class="btnArea">
+                                    <a href="" class="btn buttonTransparent" ng-click="cancelLote()">Cancelar</a>
+                                    <a href="" class="btn buttonTransparent" ng-click="saveLote()">Salvar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="btnArea">
+            <a href="" class="btn buttonTransparent" ng-click="back()">Voltar</a>
+        </div>
+    </div>
+</section>
