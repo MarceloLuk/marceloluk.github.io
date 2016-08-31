@@ -1,0 +1,122 @@
+
+<link rel="stylesheet" type="text/css" href="../public/css/login/login-custom.css">
+
+<!-- PAGE TITLE -->
+<section class="pageTitle bg-login" style="background-image:url(../public/img/login/The+Maxim+Party+2016+Pavilion.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="titleTable">
+          <div class="titleTableInner">
+            <div class="pageTitleInfo">
+              <h1>Cadastre-se</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="mainContentSection" style="margin-top: 20px">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6">
+
+                <div class="infoTitle">
+                    <p>Adicione um cartão de credito</p>
+                </div>
+
+                <div class="panel panel-default" style="cursor: pointer"   ng-if="cards.length" ng-repeat="card in cards">
+                    <div class=" panel-body">
+                        <span>
+                            <img src="img/master-card.png" alt="image" ng-show="card.tipo == 'M'">
+                            <img src="img/visa.png" alt="image" ng-show="card.tipo == 'V'">
+                        </span>
+                        <span>{{card.numero}}</span>
+                    </div>
+                </div>
+                <div class="panel panel-default" style="cursor: pointer" ng-click="addCard();">
+                    <div class=" panel-body">
+                        <span>Adicionar cartão</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6" ng-if="formCard">
+                <div class="bookingForm">
+                    <form action="" method="POST" role="form" class="form">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="infoTitle">
+                                    <h2>Dados do cartão</h2>
+                                </div>
+                            </div>
+                            <div class="form-group col-xs-12">
+                                <label>Número</label>
+                                <input type="text" class="form-control" ng-model="formData.numero" ui-credit-card>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label>Código de segurança</label>
+                                <input type="text" class="form-control" ng-model="formData.codigo" valid-number maxlength="3">
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label class="blankLabel"></label>
+                                <ul class="list-inline">
+                                    <li><a href="" ng-click="addTypeCard('M')" ng-class="{ 'filte-white' : formData.tipo != 'M'  }" ><img src="img/master-card.png" alt="image"></a></li>
+                                    <li><a href="" ng-click="addTypeCard('V')" ng-class="{ 'filte-white' : formData.tipo != 'V'  }" ><img src="img/visa.png" alt="image"></a></li>
+                                </ul>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label class="blankLabel">Vencimento</label>
+                                <div class="bookingDrop">
+                                    <select class="form-control" ng-model="formData.mes">
+                                        <option value="">Mês</option>
+                                        <option value="1">Janeiro</option>
+                                        <option value="2">Fevereiro</option>
+                                        <option value="3">Março</option>
+                                        <option value="4">Abril</option>
+                                        <option value="5">Maio</option>
+                                        <option value="6">Junho</option>
+                                        <option value="7">Julho</option>
+                                        <option value="8">Agosto</option>
+                                        <option value="9">Setembro</option>
+                                        <option value="10">Outubro</option>
+                                        <option value="11">Novembro</option>
+                                        <option value="12">Dezembro</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label></label>
+                                <div class="bookingDrop">
+                                    <select ng-model="formData.ano" class="form-control" ng-options="y as y for y in years">
+                                        <option value="">Ano</option>
+                                        <option value="2016">2016</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <!--<p style="text-align: center">TOTAL: R$ {{ totalIngressos(event.lotes) }}</p>-->
+                                <div class="btnArea">
+                                    <a href="" class="btn buttonTransparent" ng-click="cancelCard()">Cancelar</a>
+                                    <a href="" class="btn buttonTransparent" ng-click="saveCard()">Salvar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="btnArea">
+                    <a href="" class="btn buttonTransparent" ng-click="confirmBuy()">Avançar</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</section>
+

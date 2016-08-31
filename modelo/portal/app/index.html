@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- SITE TITTLE -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Priority Pass</title>
+
+  <!-- PLUGINS CSS STYLE -->
+  <link href="../public/plugins/jquery-ui/jquery-ui.css" rel="stylesheet">
+  <link href="../public/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../public/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="../public/plugins/rs-plugin/css/settings.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="../public/plugins/selectbox/select_option1.css">
+  <link rel="stylesheet" type="text/css" href="../public/plugins/datepicker/datepicker.css">
+  <link rel="stylesheet" type="text/css" href="../public/plugins/isotope/jquery.fancybox.css">
+  <link rel="stylesheet" type="text/css" href="../public/plugins/isotope/isotope.css">
+
+  <!-- GOOGLE FONT -->
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+  <!-- CUSTOM CSS -->
+  <link href="../public/css/style.css" rel="stylesheet">
+  <link href="main.css" rel="stylesheet">
+
+  <link href="bower_components/angular-growl-v2/build/angular-growl.css" rel="stylesheet">
+  <!-- FAVICON -->
+  <link rel="shortcut icon" type="image/png" href="home/img/favicon.png"/>
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+</head>
+
+<body id="changeHeader">
+
+<div id="loading-bar-container">
+</div>
+
+
+<div class="main-wrapper">
+
+  <!-- HEADER -->
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top lightHeader" role="navigation" ng-controller="appCtrl">
+      <div class="container">
+
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#/home"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active dropdown singleDrop">
+              <a href="#/home">Home</a>
+            </li>
+            <li class="dropdown singleDrop" ng-if="!userAuth">
+              <a href="#/user">Cadastre-se</a>
+            </li>
+            <li class="dropdown singleDrop">
+              <a href="#/faq">Duvidas Frequentes</a>
+            </li>
+            <li class="dropdown singleDrop">
+              <a href="#/contact">Contatos</a>
+            </li>
+
+            <li class="dropdown singleDrop " ng-if="userAuth">
+              <a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Minha Conta <span class="searchIcon"><i class="fa fa-arrow-down" aria-hidden="true"></i></span></a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="#/ticket">Meus Ingressos</a></li>
+                <li><a href="#/user/edit">Minha Conta</a></li>
+                <li><a href="#/request/card">Solicitar Cartao</a></li>
+                <li><a href="#/admin/event/list">Cadastrar Evento</a></li>
+                <li><a ng-click="logout()">Sair</a></li>
+              </ul>
+            </li>
+            <li class="dropdown searchBox" ng-if="!userAuth">
+              <a href="#/login"><span class="searchIcon"><i class="fa fa-user" aria-hidden="true"></i></span></a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </nav>
+  </header>
+  <div growl></div>
+
+
+
+  <div ng-view></div>
+
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer clearfix">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4 col-xs-12">
+          <div class="footerContent">
+            <a href="home.html" class="footer-logo"><img src="../public/img/83tec3.png" width="200px" alt="footer-logo"></a>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="footerContent">
+            <h5>Contato</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit sed do eiusmod.</p>
+            <ul class="list-unstyled">
+              <li><i class="fa fa-home" aria-hidden="true"></i>61 Park Street, Fifth Avenue, NY</li>
+              <li><i class="fa fa-phone" aria-hidden="true"></i>[88] 657 524 332</li>
+              <li><i class="fa fa-envelope-o" aria-hidden="true"></i><a href="mailTo:info@star-travel.com">info@star-travel.com</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-12">
+          <div class="footerContent">
+            <h5>Aplicativo</h5>
+            <div class="input-group">
+                <img src="../public/img/loja.png" width="370px" alt="footer-logo">
+            </div>
+            <ul class="list-inline">
+              <li><a href="https://www.facebook.com/Real-Societ%C3%A0-505090086327686/"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+              <li><a href="https://www.instagram.com/realsocieta/?hl=pt"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyRight clearfix">
+    <div class="container">
+      <div class="row">
+          <div class="copyRightText">
+            <p>Copyright © 2016. All Rights Reserved by <a target="_blank" href="http://www.iamabdus.com/">Abdus</a>.</p>
+          </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- INQUIRY MODAL -->
+<div class="modal fade bookingModal modalBook" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Inquiry About Tour</h4>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+          <div class="form-group">
+            <input type="text" class="form-control" id="yourName" placeholder="Your Name">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="yourEmail" placeholder="Your Email">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="phoneNumber" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <textarea class="form-control" rows="3" placeholder="Message"></textarea>
+          </div>
+          <button type="submit" class="btn buttonCustomPrimary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- JAVASCRIPTS -->
+
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/underscore/underscore-min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="../public/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="../public/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="../public/plugins/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+<script src="../public/plugins/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+<script src="../public/plugins/selectbox/jquery.selectbox-0.1.3.min.js"></script>
+<script src="../public/plugins/datepicker/bootstrap-datepicker.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+<script src="../public/plugins/counter-up/jquery.counterup.min.js"></script>
+<script src="../public/plugins/isotope/isotope.min.js"></script>
+<script src="../public/plugins/isotope/jquery.fancybox.pack.js"></script>
+<script src="../public/plugins/isotope/isotope-triger.js"></script>
+<script src="../public/plugins/countdown/jquery.syotimer.js"></script>
+<script src="../public/js/scroolabe.js"></script>
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+
+<script src="global.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-input-masks/angular-input-masks-standalone.js"></script>
+<script src="bower_components/angular-growl-v2/build/angular-growl.js"></script>
+<script src="bower_components/a0-angular-storage/dist/angular-storage.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+<script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+<script src="bower_components/ng-facebook/ngFacebook.js"></script>
+<script src="bower_components/ng-onload/release/ng-onload.min.js"></script>
+<script src="app.js"></script>
+<script src="home/home.js"></script>
+<script src="login/login.js"></script>
+<script src="faq/faq.js"></script>
+<script src="info/info.js"></script>
+<script src="user/user.js"></script>
+<script src="qr-code/qr-code.js"></script>
+<script src="ticket/ticket.js"></script>
+<script src="contact/contact.js"></script>
+<script src="user-check/user-check.js"></script>
+<script src="event/event.js"></script>
+<script src="user/confirm.js"></script>
+<script src="user/edit.js"></script>
+<script src="event/form.js"></script>
+<script src="event/list.js"></script>
+<script src="event/lotes.js"></script>
+<script src="user/card.js"></script>
+<script src="card/card.js"></script>
+
+</body>
+
+</html>

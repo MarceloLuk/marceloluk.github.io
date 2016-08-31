@@ -1,0 +1,105 @@
+<link rel="stylesheet" type="text/css" href="../public/css/login/login-custom.css">
+
+<section class="pageTitle" style="background-image:url(../public/img/login/644245.jpg);">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="titleTable">
+                    <div class="titleTableInner">
+                        <div class="pageTitleInfo">
+                            <h1>Cadastro de evento</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="" style="margin-top: 20px">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="bookingForm">
+                    <form action="" method="POST" role="form" class="form">
+                        <div class="row">
+
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label for="">Nome</label>
+                                <input type="text" class="form-control" ng-model="formData.nome">
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label>Data do evento</label>
+                                <div class="input-group date ed-datepicker" data-provide="datepicker">
+                                    <input type="text" class="form-control" id="dataEvento" placeholder="MM/DD/YYYY" value="{{formData.data_evento | date:'dd/MM/yyyy'}}">
+                                    <div class="input-group-addon">
+                                        <span class="fa fa-calendar"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label for="">Local</label>
+                                <input type="text" class="form-control" ng-model="formData.local">
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label for="">Informação</label>
+                                <input type="text" class="form-control" ng-model="formData.informacao">
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                <label for="">UF</label>
+                                <select ng-model="formData.uf" placeholder="UF" class="form-control">
+                                    <option value="">UF</option>
+                                    <option value="AC">AC</option>
+                                    <option value="AL">AL</option>
+                                    <option value="AM">AM</option>
+                                    <option value="AP">AP</option>
+                                    <option value="BA">BA</option>
+                                    <option value="CE">CE</option>
+                                    <option value="DF">DF</option>
+                                    <option value="ES">ES</option>
+                                    <option value="GO">GO</option>
+                                    <option value="MA">MA</option>
+                                    <option value="MT">MT</option>
+                                    <option value="MS">MS</option>
+                                    <option value="MG">MG</option>
+                                    <option value="PA">PA</option>
+                                    <option value="PB">PB</option>
+                                    <option value="PR">PR</option>
+                                    <option value="PE">PE</option>
+                                    <option value="PI">PI</option>
+                                    <option value="RJ">RJ</option>
+                                    <option value="RN">RN</option>
+                                    <option value="RO">RO</option>
+                                    <option value="RS">RS</option>
+                                    <option value="RR">RR</option>
+                                    <option value="SC">SC</option>
+                                    <option value="SE">SE</option>
+                                    <option value="SP">SP</option>
+                                    <option value="TO">TO</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group col-sm-6 col-xs-12 control-file">
+                                <label for="file-upload" class="custom-file-upload">
+                                    <i class="fa fa-cloud-upload"></i> Adicionar Imagem
+                                </label>
+                                <input id="inp" accept='image/*' type='file'>
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12">
+                                &nbsp;
+                            </div>
+                            <div class="form-group col-sm-6 col-xs-12 " ng-if="base64">
+                                <img ng-src="{{ base64 }}" width="300px">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="btnArea">
+                    <a href="" class="btn buttonTransparent" ng-click="back()">Voltar</a>
+                    <a href="" class="btn buttonTransparent" ng-click="saveEvent()">Salvar</a>
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+</section>

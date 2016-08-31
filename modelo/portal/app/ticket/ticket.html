@@ -1,0 +1,118 @@
+
+<link rel="stylesheet" type="text/css" href="../public/css/login/login-custom.css">
+
+<!-- PAGE TITLE -->
+<section class="pageTitle bg-login" style="background-image:url(../public/img/login/party_bg.jpg);">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="titleTable">
+          <div class="titleTableInner">
+            <div class="pageTitleInfo">
+              <h1>Meus Ingressos</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mainContentSection packagesSection">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="media packagesList" ng-repeat="ticket in list" style="min-height: 184px">
+          <div class="media-body">
+            <div class="bodyLeft" style="padding: 10px">
+              <h4 class="media-heading">{{ ticket.nome }}</h4>
+              <div class="countryRating">
+                <span>Local</span>
+              </div>
+              <p style="line-height: 24px">{{ ticket.local }}</p>
+              <p>{{ ticket.cliente }}</p>
+              <ul class="list-inline detailsBtn" style="top:auto">
+                <li><span class="textInfo"><i class="fa fa-calendar" aria-hidden="true"></i> {{ ticket.dataEvento }}</span></li>
+                <li><span class="textInfo"><i class="fa fa-clock-o" aria-hidden="true"></i> {{ ticket.hora }}</span></li>
+              </ul>
+            </div>
+            <div class="bodyRight">
+              <div class="bookingDetails" style="min-height: 135px">
+                <h4 style="color: #FFFFFF">{{ ticket.ingresso }}</h4>
+                <a class="btn buttonTransparent clearfix" ng-click="getCode(ticket)">Imprimir</a>
+                <a class="btn buttonTransparent clearfix" ng-click="getTrans(ticket)">Transferir</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default" ng-show="list.length == 0">
+          <div class=" panel-body">
+            <span>Nenhum ingresso encontrado.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" style="display: none">
+      <div class="col-xs-12">
+        <div class="paginationCenter">
+          <ul class="pagination">
+            <li>
+              <a href="#" aria-label="Previous">
+                <span aria-hidden="true"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Previous</span>
+              </a>
+            </li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">...</a></li>
+            <li><a href="#">9</a></li>
+            <li>
+              <a href="#" aria-label="Next">
+                <span aria-hidden="true">Next<i class="fa fa-long-arrow-right" aria-hidden="true"></i></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="myModal" style="position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1050;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    outline: 0;" ng-show="openModal">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Transferir ingresso</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" ng-model="formData.cpf" placeholder="CPF" ui-br-cpf-mask>
+          <div ng-show="user.id">
+          <div class=" style="text-align: left" ><span>Nome</span><br><span style="color: #b88a44">{{ user.nome }}</span></div>
+          <div class="" style="text-align: left" ><span>CPF</span><br><span style="color: #b88a44">{{ user.cpf }}</span></div>
+          <div class="" style="text-align: left" ><span>Email</span><br><span style="color: #b88a44">{{ user.email }}</span></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+
+          <button type="button" class="btn btn-default"  style="padding-left: 8px;padding-right: 6px;"ng-click="trans()" ng-show="user.id">Transferir</button>
+          <button type="button" class="btn btn-default"  style="padding-left: 8px;padding-right: 6px;"ng-click="check()">Verificar</button>
+          <button type="button" class="btn btn-default" style="padding-left: 8px;padding-right: 6px;" ng-click="close()">Cancelar</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
